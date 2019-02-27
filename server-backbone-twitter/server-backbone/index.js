@@ -19,8 +19,9 @@ var client = new Twitter({
  * @param {object} mention 
  */
 var formatter = function formatter (mention) {
+  var date_tweet = new Date(mention.created_at).toLocaleTimeString();
   return {
-    'createdAt': mention.created_at,
+    'createdAt': date_tweet,
     'id': mention.id_str,
     'text': mention.text,
     'user': {
@@ -30,11 +31,11 @@ var formatter = function formatter (mention) {
     'replyCount': mention.reply_count,
     'retweetCount': mention.retweet_count,
     'favoriteCount': mention.favorite_count,
-    'coordonates': mention.coordonates
+    'lang': mention.lang
   }
 }
 
-var stream = client.stream('statuses/filter', {track: 'javascript'});
+var stream = client.stream('statuses/filter', {track: 'nasa'});
 io.on('connection', function(socket){
   stream.on('data', function(mention) {
       if (mention) {

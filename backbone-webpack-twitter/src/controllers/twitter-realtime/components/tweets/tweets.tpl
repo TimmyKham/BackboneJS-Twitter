@@ -14,7 +14,7 @@
       <i class="fa fa-reply" style="width: 80px;"><span class=rp> <%- locals[i].replyCount %></span></i>
       <i class="fa fa-retweet" style="width: 80px"><span class=rt> <%- locals[i].retweetCount %></span></i>
       <i class="fa fa-heart" style="width: 80px"><span class=fav> <%- locals[i].favoriteCount %></span></i>
-      <i class="fas fa-map-marker-alt" style="width: 80px"><span class=loc><%- locals[i].coordonates %></span></i>
+      <i class="fas fa-map-marker-alt" style="width: 80px"><span class=loc> <%- locals[i].lang %></span></i>
     </div>
   </div>
 </div>
