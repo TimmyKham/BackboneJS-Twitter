@@ -9,6 +9,11 @@ var Tweets = require('./components/tweets');
 module.exports = Backbone.View.extend({
   'el': '#app',
   'template': template(twitterRealTime),
+  /**
+   * Fonction de rendu
+   * @constructor
+   * Dans l'element html on passe le template
+   */
   'render': function render () {
     this.$el.html(this.template());
 

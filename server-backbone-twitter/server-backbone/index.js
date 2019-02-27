@@ -1,9 +1,12 @@
+/** Appel des Dépendances */
 var app = require('http').createServer();
 var io = require('socket.io').listen(app);
 var Twitter = require('twitter');
 
+/** Écoute le serveur port 3000 */
 app.listen(3000);
  
+/** Ajout des clés d'accès pour accéder à l'API */
 var client = new Twitter({
   consumer_key: 'zFMdgShVOGmqYovC76MCSuqeR',
   consumer_secret: 'rhpsO6aFRvdIFvJZzhEKB7O7Sg6plTLw30f4huJSjt9bUD6kWX',
@@ -11,6 +14,10 @@ var client = new Twitter({
   access_token_secret: 'x2VQ724GCqt1bvnKpVgeQeyKjUj9vk1YUByc2sZSli3JI'
 });
 
+/**
+ * @constructor
+ * @param {object} mention 
+ */
 var formatter = function formatter (mention) {
   return {
     'createdAt': mention.created_at,
@@ -27,7 +34,7 @@ var formatter = function formatter (mention) {
   }
 }
 
-var stream = client.stream('statuses/filter', {track: 'javascript'});
+var stream = client.stream('statuses/filter', {track: 'nasa'});
 io.on('connection', function(socket){
   stream.on('data', function(mention) {
       if (mention) {
