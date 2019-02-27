@@ -23,7 +23,7 @@ module.exports = Backbone.View.extend({
   */
   'render': function render () {
     console.log(this.collection.toJSON());
-    this.$el.html(this.template(this.collection.toJSON().reverse()));
+    this.$el.html(this.template(this.collection.toJSON()));
     return this;
   }
 });

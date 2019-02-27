@@ -27,7 +27,12 @@ var Mentions = Backbone.Collection.extend({
    * @param {object} mention
    */
   'addMention': function addMention (mention) {
-    this.add(mention);
+    if (this.length > 5) {
+      this.pop();
+      this.unshift(mention);
+    } else {
+      this.add(mention);
+    }
   }
 });
 
