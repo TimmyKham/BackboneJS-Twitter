@@ -26,21 +26,22 @@ var formatter = function formatter (mention) {
     'text': mention.text,
     'user': {
       'name': mention.user.name,
+      'screen_name': mention.user.screen_name,
       'avatar': mention.user.profile_image_url
     },
     'replyCount': mention.reply_count,
     'retweetCount': mention.retweet_count,
     'favoriteCount': mention.favorite_count,
-    'lang': mention.lang
+    'location': mention.user.location
   }
 }
 
-var stream = client.stream('statuses/filter', {track: 'nasa'});
+var stream = client.stream('statuses/filter', {track: 'travel'});
 io.on('connection', function(socket){
   stream.on('data', function(mention) {
       if (mention) {
         socket.emit('on.received.tweet', formatter(mention));
-        console.log(formatter(mention));
+        console.log(formatter(mention))
       }
   });
 });

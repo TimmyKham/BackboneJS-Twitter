@@ -13,7 +13,7 @@ var Mentions = Backbone.Collection.extend({
   'model': Mention,
   'initialize': function initialize () {
     /**
-     * Fonction stream
+     * Creer un evenement Fonction stream
      * @construtor
      * @param {object} tweet
      */
@@ -28,8 +28,8 @@ var Mentions = Backbone.Collection.extend({
    */
   'addMention': function addMention (mention) {
     if (this.length > 5) {
-      this.pop();
-      this.unshift(mention);
+      this.pop(); // Supprime un élément de la fin d'un tableau
+      this.unshift(mention);// Ajoute des éléments au début d'un tableau
     } else {
       this.add(mention);
     }

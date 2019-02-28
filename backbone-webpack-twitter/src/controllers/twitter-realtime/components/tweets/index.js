@@ -18,8 +18,7 @@ module.exports = Backbone.View.extend({
   /**
   * Fonction de rendu
   * @constructor
-  * Dans el (element) on passe le template qui contient la collection au format json et
-  * on reverse pour afficher les nouveaux tweets en haut
+  * Dans el (element) on passe le template qui contient la collection au format json
   */
   'render': function render () {
     console.log(this.collection.toJSON());
