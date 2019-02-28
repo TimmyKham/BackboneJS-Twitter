@@ -21,7 +21,6 @@ module.exports = Backbone.View.extend({
   * Dans el (element) on passe le template qui contient la collection au format json
   */
   'render': function render () {
-    console.log(this.collection.toJSON());
     this.$el.html(this.template(this.collection.toJSON()));
     return this;
   }

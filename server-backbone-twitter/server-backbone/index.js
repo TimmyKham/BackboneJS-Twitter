@@ -41,7 +41,6 @@ io.on('connection', function(socket){
   stream.on('data', function(mention) {
       if (mention) {
         socket.emit('on.received.tweet', formatter(mention));
-        console.log(formatter(mention))
       }
   });
 });
